@@ -36,6 +36,7 @@ class AdminPanelProvider extends PanelProvider
             ->profile(isSimple: false)
             ->simplePageMaxContentWidth(MaxWidth::Medium)
             ->maxContentWidth(MaxWidth::Full)
+            ->sidebarCollapsibleOnDesktop()
             ->login()
             ->tenant(Company::class, ownershipRelationship:'company')
             ->tenantRegistration(RegisterCompany::class)
@@ -46,6 +47,9 @@ class AdminPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
                 Pages\Dashboard::class,
+            ])
+            ->resources([
+                config('filament-logger.activity_resource')
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([])

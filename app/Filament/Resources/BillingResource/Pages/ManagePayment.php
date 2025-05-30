@@ -126,7 +126,8 @@ class ManagePayment extends ManageRelatedRecords
                     ->slideOver()
                     ->modalWidth(MaxWidth::FitContent)
                     ->modalHeading(fn() => 'Received Payment for ' .$this->billing->type)
-                    ->modalDescription(fn() => "Amount due: NGN".Number::format($this->billing->total, 2)),
+                    ->modalDescription(fn() => "Amount due: NGN".Number::format($this->billing->total, 2))
+                    ->hidden(fn()=>$this->billing->status === 'Paid'),
             ])
             ->actions([
                Tables\Actions\ActionGroup::make([

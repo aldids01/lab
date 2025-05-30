@@ -17,7 +17,7 @@ class CompanyResource extends Resource
 {
     protected static ?string $model = Company::class;
     protected static bool $isScopedToTenant = false;
-    protected static ?string $navigationGroup = 'System';
+    protected static ?string $navigationGroup = 'Settings';
 
     public static function form(Form $form): Form
     {

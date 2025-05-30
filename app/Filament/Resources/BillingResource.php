@@ -79,7 +79,7 @@ class BillingResource extends Resource
                             ->required()
                             ->reactive()
                             ->disableOptionsWhenSelectedInSiblingRepeaterItems()
-                            ->relationship('testLists', 'name')
+                            ->relationship('testList', 'name')
                             ->afterStateUpdated(function (Forms\Set $set, Forms\Get $get){
                                 $selected = $get('test_list_id');
                                 if($selected){

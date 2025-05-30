@@ -34,11 +34,11 @@ class Billing extends Model
     {
         return $this->hasMany(LineItem::class);
     }
-    public function laboratory(): HasMany
+    public function laboratories(): HasMany
     {
         return $this->hasMany(Laboratory::class);
     }
-    public function scanning(): HasMany
+    public function scannings(): HasMany
     {
         return $this->hasMany(Scanning::class);
     }

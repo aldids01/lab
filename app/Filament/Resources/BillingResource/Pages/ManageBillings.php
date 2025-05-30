@@ -6,6 +6,7 @@ use App\Filament\Resources\BillingResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ManageRecords;
 use Filament\Support\Enums\MaxWidth;
+use Illuminate\Database\Eloquent\Model;
 
 class ManageBillings extends ManageRecords
 {
@@ -16,7 +17,8 @@ class ManageBillings extends ManageRecords
         return [
             Actions\CreateAction::make()
                 ->slideOver()
-                ->modalWidth(MaxWidth::FitContent),
+                ->modalWidth(MaxWidth::FitContent)
+                ->successRedirectUrl(fn (Model $record): string => 'billings/'.$record->id.'/payments'),
         ];
     }
 

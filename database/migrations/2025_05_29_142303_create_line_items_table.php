@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('test_list_id')->nullable()->constrained('test_lists')->onDelete('cascade');
             $table->foreignId('service_id')->nullable()->constrained('services')->onDelete('cascade');
             $table->decimal('amount', 20, 2);
+            $table->longText('results')->nullable();
             $table->enum('status', ['Pending', 'Processing', 'Delivered'])->default('Pending');
             $table->timestamps();
         });
